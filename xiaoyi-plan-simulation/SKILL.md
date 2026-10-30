@@ -97,13 +97,14 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 
 ### 风电场默认演示流程`，围绕wind项目展开
 
-1. `start` → 打开‘全景时程图看板’、‘风机交付时程图’和‘资源负荷分析’三个看板，确定这三个页签用户同时均可切换访问， 默认停留在全景时程图页签上。
-2. `setup wind` -> `wind kickoff`
-3. 约两个月后 `pause` 
-4. `wind priority WIND-15 1` ，更改风机交付优先级
-5. `wind weatherM`，引入气候模型
-6. `wind addP 2` 追加两个风机交付
-7. `wind doubleR`, 追加资源供给
+1. `start`
+2. 打开‘全景时程图看板’、‘风机交付时程图’和‘资源负荷分析’三个看板，确定这三个页签用户同时均可切换访问， 默认停留在全景时程图页签上。
+3. `setup wind` -> `wind kickoff`
+4. 约两个月后 `pause` 
+5. `wind priority WIND-15 1` ，更改风机交付优先级
+6. `wind weatherM`，引入气候模型
+7. `wind addP 2` 追加两个风机交付
+8. `wind doubleR`, 追加资源供给
 8..`continue`，恢复推进。
 
 其中上述简写仅是用户可读表达；实际调用必须使用第 5 节的 MCP 参数。其他项目默认执行 `start`、打开全景看板、`setup`、`kickoff`，其余变更按用户明确指令执行。
