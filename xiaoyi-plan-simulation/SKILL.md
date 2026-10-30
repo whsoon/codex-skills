@@ -73,7 +73,7 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 1. 执行前确认浏览器焦点在目标看板；不匹配则切换或打开对应看板。变更项目状态前，应先打开对应全景/专题看板。
 2. 在对话中先展示规范化的工具名和完整参数，再调用 MCP。
 3. 解析返回 JSON 的 `taskId`、`success`、`status`、`data`、`errorMessage`。`success=true` 只表示已接收，不代表执行完成。
-4. 任一业务命令返回 `PROCESSING`：原样保存其 `taskId`，每 5 秒调用一次 `simulation_command(action="check", task_id=<原始taskId>)`，最多 20 次。
+4. 任一业务命令返回 `PROCESSING`：原样保存其 `taskId`，每 10 秒调用一次 `simulation_command(action="check", task_id=<原始taskId>)`，最多 20 次。
 5. 每次 check 严格核对 taskId 逐字符一致。缺失、不一致、格式错误、无法解析或网络超时，立即报告“结果未知：taskId不匹配或无法确认”，停止序列。
 6. 只有严格匹配原始 taskId 且返回 `status="SUCCESS"` 才能进入下一步；`FAILED` 或 `success=false` 立即停止并报告错误。
 7. 20 次仍为 `PROCESSING`，报告“结果未知：任务仍在处理中”，不得重发、跳过或用页面变化推断完成。
@@ -86,17 +86,18 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 
 ### 中车时代项目集默认演示流程`，围绕demo项目展开
 
-1. `start`；打开 `Demos项目集时程图.html` 和 `Demo资源负荷分析.html`，记录初始状态。
-2. `setup demo` → `demo kickoff`。
-3. 让仿真推进约一个月后 `pause`。
-4. `demo add demo1`，观察排程变化；`continue`。
-5. 再推进约一个月后 `pause`。
-6. `demo add demo2`；`demo priority demo2 1`；增加新的子项目，观察变化。
-7. `continue`，恢复推进。
+1. `start`；
+2. 打开 `Demos项目集时程图.html` 和 `Demo资源负荷分析.html`，确定这两个页签用户同时均可切换访问， 默认停留在时程图页签上。
+3. `setup demo` → `demo kickoff`。
+4. 让仿真推进约一个月后 `pause`。
+5. `demo add demo1`，观察排程变化；`continue`。
+6. 再推进约一个月后 `pause`。
+7. `demo add demo2`；`demo priority demo2 1`；增加新的子项目，观察变化。
+8. `continue`，恢复推进。
 
 ### 风电场默认演示流程`，围绕wind项目展开
 
-1. `start` → 打开全景、风机交付和资源负荷看板，记录初始状态。
+1. `start` → 打开‘全景时程图看板’、‘风机交付时程图’和‘资源负荷分析’三个看板，确定这三个页签用户同时均可切换访问， 默认停留在全景时程图页签上。
 2. `setup wind` -> `wind kickoff`
 3. 约两个月后 `pause` 
 4. `wind priority WIND-15 1` ，更改风机交付优先级
