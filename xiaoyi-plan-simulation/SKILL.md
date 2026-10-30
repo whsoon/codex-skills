@@ -22,16 +22,16 @@ description: 用于“小易”工程计划仿真、项目看板导航、仿真�
 
 ## 3. 项目索引
 
-| 用户称呼 | 项目集 ID | 说明 |
+| 项目称呼 | 项目集 ID | 说明 |
 |---|---|---|
-| 时代电气/中车 | `demo` | 产品研发；可追加 `demo1`、`demo2` 等子项目 |
-| 株机车辆 | `zhuji` | 装备制造；单项目 |
-| 资阳车辆 | `ziyang` | 装备制造；`ziyang`、`ziyang-E`、`ziyang-M` |
-| 风电场/风机 | `wind` | 新能源；单项目 |
-| 空分 | `asu` | 化工；单项目 |
-| LNG | — | 暂无可用数据 |
-| 北京地铁 | `bjsubway` | 轨道交通；单项目 |
-| 迪拜蓝线 | `blsubway` | 轨道交通；单项目 |
+| 中车项目集（或者叫“时代电气项目”） | `demo` | 产品研发；可追加 `demo1`、`demo2` 等子项目 |
+| 株机车辆项目 | `zhuji` | 装备制造；单项目 |
+| 资阳车辆项目 | `ziyang` | 装备制造；`ziyang`、`ziyang-E`、`ziyang-M` |
+| 风电场/风机项目集 | `wind` | 新能源；单项目 |
+| 空分项目 | `asu` | 化工；单项目 |
+| LNG项目 | — | 暂无可用数据 |
+| 北京地铁项目 | `bjsubway` | 轨道交通；单项目 |
+| 迪拜蓝线项目 | `blsubway` | 轨道交通；单项目 |
 
 ## 4. 看板索引
 
@@ -56,9 +56,9 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 | 意图 | 参数 |
 |---|---|
 | 开始/暂停/继续/取消仿真 | `action="start"/"pause"/"continue"/"cancel"` |
-| 构造项目集 | `action="setup", project_id=...` |
-| 启动项目集 | `action="kickoff", project_id=...` |
-| 追加子项目 | `action="add_subproject", project_id=..., child_project_id=...` |
+| 构造（初始化）某某项目集 | `action="setup", project_id=...` |
+| 启动某某项目 | `action="kickoff", project_id=...` |
+| 追加某项目集的子项目 | `action="add_subproject", project_id=..., child_project_id=...` |
 | 追加 N 个产品 | `action="add_products", project_id=..., count=N` |
 | 设置产品或子项目优先级 | `action="set_priority", project_id=..., item_id=..., priority=N` |
 | 任务工期/天气/资源等已登记项目命令 | `action="project_command", project_id=..., command=...` |
@@ -84,10 +84,10 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 
 用户要求“完整演示项目集”且未指定顺序时，按对应流程逐步执行；每一步遵守第 6 节等待门槛。
 
-### 中车时代项目集默认演示流程`，围绕demo项目展开
+### `中车项目集默认演示流程`，围绕demo项目展开
 
 1. `start`；
-2. 打开 `Demos项目集时程图.html` 和 `Demo资源负荷分析.html`，确定这两个页签用户同时均可切换访问， 默认停留在时程图页签上。
+2. 标签页分别打开 `Demos项目集时程图.html` 和 `Demo资源负荷分析.html`，确定这两个页签用户同时均可切换访问， 默认停留在时程图页签上。
 3. `setup demo` → `demo kickoff`。
 4. 让仿真推进约一个月后 `pause`。
 5. `demo add demo1`，观察排程变化；`continue`。
@@ -95,10 +95,10 @@ Gantt 当前不可用。历史 Gantt 地址如需展示，仅可按用户明确�
 7. `demo add demo2`；`demo priority demo2 1`；增加新的子项目，观察变化。
 8. `continue`，恢复推进。
 
-### 风电场默认演示流程`，围绕wind项目展开
+### `风机（风电场）默认演示流程`，围绕wind项目展开
 
 1. `start`
-2. 打开‘全景时程图看板’、‘风机交付时程图’和‘资源负荷分析’三个看板，确定这三个页签用户同时均可切换访问， 默认停留在全景时程图页签上。
+2. 标签页分别打开‘全景时程图看板’、‘风机交付时程图’和‘资源负荷分析’三个看板，确定这三个页签用户同时均可切换访问， 默认停留在全景时程图页签上。
 3. `setup wind` -> `wind kickoff`
 4. 约两个月后 `pause` 
 5. `wind priority WIND-15 1` ，更改风机交付优先级
